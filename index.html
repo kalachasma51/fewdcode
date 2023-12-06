@@ -804,24 +804,23 @@ document.addEventListener("DOMContentLoaded", function () {
  <!-- Weather data will be displayed here -->
  </div>
  </div>
- <script src="script.js"></script>
-</body>
-</html>
-==============================================================================
-5b. Script.js
-==============================================================================
+
+ <script>
 document.addEventListener("DOMContentLoaded", function () {
     const apiKey = "b1693ed7ad181ad79817cc99d0523aa3"; // Replace with your OpenWeatherMap API key
     const fetchWeatherButton = document.getElementById("fetchWeather");
     const cityInput = document.getElementById("cityInput");
     const weatherResult = document.getElementById("weatherResult");
+   
     fetchWeatherButton.addEventListener("click", function () {
     const city = cityInput.value;
     if (city.trim() === "") {
     alert("Please enter a city name.");
     return;
     }
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;  
+   
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+   
     fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
@@ -832,6 +831,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <p>Temperature: ${temperature} &#8451;</p>
     <p>Weather: ${weatherDescription}</p>
     `;
+   
     weatherResult.innerHTML = weatherOutput;
     })
     .catch((error) => {
@@ -840,6 +840,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     });
     });
+    
+</script>
+</body>
+</html>
 =====================================================================
 6A.index.html
 ====================================================================
